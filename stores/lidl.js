@@ -9,6 +9,7 @@ const units = {
     flasche: { unit: "kus", factor: 1 },
     flaschen: { unit: "kus", factor: 1 },
     "pkg.": { unit: "kus", factor: 1 },
+    "m²": { unit: "m²", factor: 1 },
 };
 
 exports.getCanonical = function (item, today) {

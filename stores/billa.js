@@ -5,6 +5,8 @@ const utils = require("./utils");
 const units = {
     kus: { unit: "ks", factor: 1 },
     kilogram: { unit: "kg", factor: 1 },
+    "p.dáv": { unit: "prací dávka", factor: 1 },
+    rl: { unit: "role", factor: 1 },
 };
 
 const baseCategorySlugs = [
