@@ -29,11 +29,12 @@
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.18.2",
-    "hyphen": "^1.6.6",
     "husky": "^8.0.3",
+    "hyphen": "^1.6.6",
     "moment": "^2.29.4",
     "node-html-parser": "^6.1.5",
     "pdfjs-dist": "^3.7.107",
+    "puppeteer": "^21.7.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
