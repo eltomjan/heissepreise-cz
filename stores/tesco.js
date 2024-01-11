@@ -1,7 +1,6 @@
 const parser = require("node-html-parser");
 const utils = require("./utils");
 const puppeteer = require("puppeteer");
-const { pathToFileURL } = require("url");
 
 const units = {
     kus: { unit: "kus", factor: 1 },
@@ -34,9 +33,7 @@ exports.fetchData = async function () {
         bio: "bio",
         bioMiddle: " bio ",
     };
-    let browser = await puppeteer
-        .launch //{headless:false}
-        ();
+    let browser = await puppeteer.launch();
     let pageObj = (await browser.pages())[0];
     await pageObj.setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36");
 
@@ -82,8 +79,11 @@ exports.fetchData = async function () {
 
             try {
                 console.log(`Tesco ${Url}`);
-                //if (debugEnv) await pageObj.goto(`file://${process.cwd().replace(/\\/g,'/')}/stores/tesco/${main.catId}_${(page + 100).toString().substr(1)}.htm`); else
-                {
+                if (debugEnv)
+                    await pageObj.goto(
+                        `file://${process.cwd().replace(/\\/g, "/")}/stores/tesco/${main.catId}_${(page + 100).toString().substr(1)}.htm`
+                    );
+                else {
                     do {
                         try {
                             await pageObj.goto(Url, { waitUntil: "networkidle2" });
@@ -152,4 +152,3 @@ exports.mapCategory = (rawItem, item) => {
     if (item.categoryNames) return item.categoryNames;
     return null;
 };
-exports.fetchData();
